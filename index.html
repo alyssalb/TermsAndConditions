@@ -3,15 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Surveillance Report Generator // ACCESS LEVEL: ALPHA</title>
+    <title>Terms and Conditions Sim</title>
     <style>
-        /* * ==============================
-         * 1. SURVEILLANCE VIBE CSS 
-         * ==============================
-         */
         body {
             background-color: #000;
-            color: #00FF00; /* Bright green text */
+            color: #00FF00; /* Bright green */
             font-family: 'Consolas', 'Courier New', monospace;
             margin: 0;
             padding: 0;
@@ -36,7 +32,6 @@
             z-index: 10;
         }
 
-        /* Main structure to center content */
         #main-container {
             display: flex;
             flex-direction: column;
@@ -48,7 +43,7 @@
             position: relative;
         }
 
-        /* Webcam/Video Container (Background Layer) */
+        /* Webcam/Video Container (Background) */
         #video-container {
             position: fixed;
             top: 0;
@@ -68,7 +63,7 @@
             transform: scaleX(-1); /* Mirror */
         }
         
-        /* Game Container (The prominent box for the Twine content) */
+        /* Twine Container */
         #game-container {
             position: relative;
             background-color: rgba(0, 0, 0, 0.9);
@@ -78,10 +73,8 @@
             width: 90%;
             height: 85vh; /* Fixed height for the iframe */
             z-index: 5;
-            /* No padding here, the iframe handles its own content padding */
         }
 
-        /* IFRAME STYLES */
         #twine-iframe {
             width: 100%;
             height: 100%;
@@ -98,15 +91,12 @@
 
     <div id="main-container">
         <div id="game-container">
-            <iframe id="twine-iframe" src="twine.html" title="Twine Game Content"></iframe>
+            <iframe id="twine-iframe" src="twine.html" title="Twine: Terms and Conditions"></iframe>
         </div>
     </div>
 
     <script>
-        /* * ==============================
-         * 2. JAVASCRIPT LOGIC
-         * ==============================
-         */
+
         document.addEventListener('DOMContentLoaded', (event) => {
             const videoElement = document.getElementById('video-feed');
             
