@@ -113,10 +113,15 @@
                 navigator.mediaDevices.getUserMedia({ video: true, audio: false })
                     .then(stream => {
                         videoElement.srcObject = stream;
+
+                        videoElement.onloadedmetadata = () => {
+                            videoElement.play().catch(playError => {
+                                console.warn("Video play failed (autoplay policy?):", playError);
+                            });
+                        };
                     })
                     .catch(err => {
                         console.warn("Camera access denied or failed:", err);
-                        // Hide video element if access fails to keep UI clean
                         videoElement.style.display = 'none';
                     });
             } else {
