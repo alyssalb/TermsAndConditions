@@ -13,8 +13,40 @@
             padding: 0;
             overflow: hidden; /* Prevent body scroll */
         }
-        
-        /* CRT Scanline Effect */
+
+        #main-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start; /* Start content near the top */
+            padding-top: 5vh;
+            height: 100vh;
+            z-index: 5;
+            position: relative;
+        }
+
+        /* Webcam/Video Container (Background) */
+        #video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            z-index: 0; 
+            opacity: 0.3; /* Subtle fade */
+        }
+
+        #video-feed {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%); 
+            transform: scaleX(-1);
+            display: block;
+        }
+
+        /* CRT Effect */
         #main-container::before {
             content: '';
             position: fixed;
@@ -31,48 +63,24 @@
             pointer-events: none; 
             z-index: 10;
         }
-
-        #main-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start; /* Start content near the top */
-            padding-top: 5vh;
-            height: 100vh;
-            z-index: 1;
-            position: relative;
-        }
-
-        /* Webcam/Video Container (Background) */
-        #video-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: 0; 
-            opacity: 0.1; /* Subtle fade */
-        }
-
-        #video-feed {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: grayscale(100%) brightness(1.5); 
-            transform: scaleX(-1); /* Mirror */
-        }
-        
         /* Twine Container */
         #game-container {
             position: relative;
             background-color: rgba(0, 0, 0, 0.9);
             border: 2px solid #00FF00;
             box-shadow: 0 0 10px #00FF00;
+            padding: 20px;
             max-width: 600px;
             width: 90%;
-            height: 85vh; /* Fixed height for the iframe */
-            z-index: 5;
+            height: 85vh; /* Fixed height*/
+            overflow-y: auto;
+            z-index: 15;
+        }
+
+        #game-container * {
+            color: #00FF00;
+            text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+            background-color: transparent !important;
         }
 
         #twine-iframe {
