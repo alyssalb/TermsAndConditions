@@ -90,10 +90,10 @@
             overflow-y: auto;
         }
     </style>
-
-    <audio src="https://drive.google.com/file/d/13-70jvipKU4ERUqRSEeVPwLRlBNj6M4l/view?usp=sharing" controls loop /audio>
 </head>
 <body>
+    
+    <audio id="background-audio" src="https://drive.google.com/file/d/13-70jvipKU4ERUqRSEeVPwLRlBNj6M4l/preview" controls loop></audio></head>
 
     <div id="video-container">
         <video id="video-feed" autoplay playsinline></video>
@@ -107,7 +107,8 @@
 
     <script>
        window.onload = function() {
-            var audio = document.getElementById('background-music');
+        var audio = document.getElementById('background-audio');
+        
         audio.play().catch(function(error) {
           console.log("Autoplay failed:", error);
         });
