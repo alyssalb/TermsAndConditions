@@ -109,6 +109,12 @@
     </div>
 
     <script>
+       window.onload = function() {
+            var audio = document.getElementById('background-music');
+        audio.play().catch(function(error) {
+          console.log("Autoplay failed:", error);
+        });
+      };
         document.addEventListener('DOMContentLoaded', (event) => {
             const videoElement = document.getElementById('video-feed');
             
